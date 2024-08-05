@@ -1,4 +1,4 @@
-anim-vgs-git
+anim-vgs-git 🚶🕹️
 
 # Animación para Videojuegos
 
