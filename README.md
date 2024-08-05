@@ -6,7 +6,7 @@ anim-vgs-git 🚶🕹️
  - Animaciones
 
    
-![anim-vgs-header-image](https://github.com/user-attachments/assets/f4f67505-2a21-4cf1-9cba-213ec21c775a)
+![anim-vgs-header-img](https://github.com/user-attachments/assets/c333c2db-16fe-45e1-8888-f0691ae4f131)
 
 
 ☐☑☒
