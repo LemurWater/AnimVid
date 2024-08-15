@@ -13,9 +13,10 @@ public class Movement : MonoBehaviour
     [Space(20)]
     [Header("VARIABLES ---------------------------")]
     [Header("MOVEMENT")]
-    [Range(3, 6)]
     public float xSpeed = 1.0f;
-    public float speed = 15f;
+    [Range(1, 4)]
+    public float speed = 1.5f;
+    [Range(1, 4)]
     public float runSpeed = 3.0f;
 
     [Space(10)]

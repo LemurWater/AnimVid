@@ -274,13 +274,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9d006f8e5edf8210978dac595569e45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keybidings: {fileID: 341814091}
   animator: {fileID: 1454689685}
-  speed: 15
   xSpeed: 1
-  character: {fileID: 1454689684}
-  gun: {fileID: 1285047491}
-  camera: {fileID: 971053046}
+  speed: 1.5
+  runSpeed: 3
+  character: {fileID: 0}
+  gun: {fileID: 0}
+  camera: {fileID: 0}
 --- !u!143 &341814089
 CharacterController:
   m_ObjectHideFlags: 0
@@ -320,8 +320,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forward_k: 119
+  backwards_k: 115
   run_k: 304
   forward_j: 330
+  backwards_j: 331
   run_j: 331
 --- !u!1 &387839170
 GameObject:
