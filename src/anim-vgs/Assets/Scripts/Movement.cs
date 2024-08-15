@@ -83,6 +83,10 @@ public class Movement : MonoBehaviour
             //3D Movement
         }
     }
+    public void WalkForward2(){
+        animatorBasic.SetBool("isForward",true);
+        CharacterMovement(new Vector3(0, 0, 1), speed);
+    }
     void Backwards(){
         if (Input.GetKey(keybidings.k_backwards) || Input.GetKey(keybidings.j_backwards)){
             //Animation

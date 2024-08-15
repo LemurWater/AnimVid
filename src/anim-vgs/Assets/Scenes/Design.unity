@@ -272,6 +272,7 @@ GameObject:
   - component: {fileID: 341814089}
   - component: {fileID: 341814088}
   - component: {fileID: 341814091}
+  - component: {fileID: 341814092}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -367,6 +368,101 @@ MonoBehaviour:
   j_aim: 333
   j_shoot: 334
   j_auto: 335
+--- !u!114 &341814092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 341814086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 2d26f9bbb1f96f64482bebbf1c97ce54,
+    type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 341814088}
+        m_TargetAssemblyTypeName: Movement, Assembly-CSharp
+        m_MethodName: WalkForward
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: ea0dff47-dd82-4b61-81e8-586cae364067
+    m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow,/SZMYPOWERDS4WiredController/Stick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 08d7f3b7-da84-4745-a422-f87df8e509e7
+    m_ActionName: Player/Look[/Mouse/delta,/SZMYPOWERDS4WiredController/Hat]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 94f810b4-ad32-4ed8-879f-919a7fcb791c
+    m_ActionName: Player/Fire[/Mouse/leftButton,/SZMYPOWERDS4WiredController/trigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4f36e566-44e4-44b7-b0e8-f143a5ef7f4c
+    m_ActionName: UI/Navigate[/SZMYPOWERDS4WiredController/Stick/up,/SZMYPOWERDS4WiredController/Stick/down,/SZMYPOWERDS4WiredController/Stick/left,/SZMYPOWERDS4WiredController/Stick/right,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2a53cb00-2c76-4c13-a514-3987df645320
+    m_ActionName: UI/Submit[/Keyboard/enter,/SZMYPOWERDS4WiredController/trigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2a8d746c-9d64-4b74-b695-483fa5ad40ff
+    m_ActionName: UI/Cancel[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 98f110ec-216d-4c12-a522-22be82c1f547
+    m_ActionName: UI/Point[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a42c3b66-b923-4d09-9351-a0b3ede03172
+    m_ActionName: UI/Click[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7b640ee9-d570-4934-a72f-f164a1b4a292
+    m_ActionName: UI/ScrollWheel[/Mouse/scroll]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b6ce2a15-4cba-4b0d-8202-8d7e8351a31e
+    m_ActionName: UI/MiddleClick[/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 19fa8942-4946-40d8-b0b3-70f55b2ce79e
+    m_ActionName: UI/RightClick[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bce135c4-4038-43ea-8ad7-7cbe6f99105e
+    m_ActionName: UI/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6b1ae83f-c877-4a24-a756-887cbef8ece5
+    m_ActionName: UI/TrackedDeviceOrientation
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &387839170
 GameObject:
   m_ObjectHideFlags: 0
@@ -2235,14 +2331,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
-    are already bound by a Humanoid avatar. These transforms can only be changed
-    by Humanoid clips.\n\tTransform 'mixamorig:Hips'\n\tTransform 'mixamorig:LeftFoot'\n\tTransform
-    'mixamorig:LeftHandIndex1'\n\tTransform 'mixamorig:RightHandRing2'\n\tTransform
-    'mixamorig:RightArm'\n\tTransform 'mixamorig:LeftLeg'\n\tTransform 'mixamorig:LeftShoulder'\n\tTransform
-    'mixamorig:RightHandRing1'\n\tTransform 'mixamorig:RightHandIndex3'\n\tTransform
-    'mixamorig:LeftHandMiddle1'\n\tand more ...\n\tFrom animation clip 'GUN - Firing
-    Single'"
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
