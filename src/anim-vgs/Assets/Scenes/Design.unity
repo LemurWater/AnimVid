@@ -270,6 +270,7 @@ GameObject:
   m_Component:
   - component: {fileID: 341814087}
   - component: {fileID: 341814089}
+  - component: {fileID: 341814093}
   - component: {fileID: 341814088}
   - component: {fileID: 341814091}
   - component: {fileID: 341814092}
@@ -309,6 +310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatorBasic: {fileID: 1096132990}
   animatorGun: {fileID: 1096132990}
+  move: {fileID: -4982958628761527405, guid: 2d26f9bbb1f96f64482bebbf1c97ce54, type: 3}
   xSpeed: 1
   speed: 1.5
   runSpeed: 3
@@ -398,7 +400,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 341814088}
         m_TargetAssemblyTypeName: Movement, Assembly-CSharp
-        m_MethodName: WalkForward
+        m_MethodName: WalkForward2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -463,6 +465,33 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!54 &341814093
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 341814086}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &387839170
 GameObject:
   m_ObjectHideFlags: 0
@@ -2010,6 +2039,7 @@ GameObject:
   - component: {fileID: 971053048}
   - component: {fileID: 971053047}
   - component: {fileID: 971053050}
+  - component: {fileID: 971053051}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2136,6 +2166,33 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!1773428102 &971053051
+ParentConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971053046}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Weight: 1
+  m_TranslationAtRest: {x: 0, y: 0.643, z: 2.031}
+  m_RotationAtRest: {x: 0, y: 180, z: 0}
+  m_TranslationOffsets:
+  - {x: 0, y: 0.643, z: 2.031}
+  m_RotationOffsets:
+  - {x: 0, y: 180, z: 0}
+  m_AffectTranslationX: 1
+  m_AffectTranslationY: 1
+  m_AffectTranslationZ: 1
+  m_AffectRotationX: 1
+  m_AffectRotationY: 1
+  m_AffectRotationZ: 1
+  m_Active: 1
+  m_IsLocked: 1
+  m_Sources:
+  - sourceTransform: {fileID: 341814087}
+    weight: 1
 --- !u!1 &1067910984
 GameObject:
   m_ObjectHideFlags: 0
@@ -2325,7 +2382,7 @@ Animator:
   m_GameObject: {fileID: 1096132987}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: cfe77e14f8f763b3696517437d5f7d2e, type: 3}
-  m_Controller: {fileID: 9100000, guid: 94dcba40214c2dacbad3e3e10283c28e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8ee153e01ca49920fb78999cff516477, type: 2}
   m_CullingMode: 2
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

@@ -2,13 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.InputSystem;
+
 public class Movement : MonoBehaviour
 {
     [Header("REFERENCES")]
     public Animator animatorBasic;
     public Animator animatorGun;
+    public InputActionReference move;
+    Vector2 moveDirection;
 
     CharacterController controller;
+    Rigidbody rb;
     Keybindings keybidings;
 
     [Space(20)]
@@ -34,17 +39,23 @@ public class Movement : MonoBehaviour
     public GameObject camera;
 
 
+
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        rb = GetComponent<Rigidbody>();
         keybidings = GetComponent<Keybindings>();
     }
 
+    void FixedUpdate() {
+        rb.velocity = new Vector2(moveDirection.x * speed * Time.deltaTime, moveDirection.y * speed * Time.deltaTime);    
+    }
     // Update is called once per frame
     void Update()
     {
-        Move();
+        //Move();
+        moveDirection = move.action.ReadValue<Vector2>();
     }
 
 
@@ -83,9 +94,11 @@ public class Movement : MonoBehaviour
             //3D Movement
         }
     }
-    public void WalkForward2(){
-        animatorBasic.SetBool("isForward",true);
-        CharacterMovement(new Vector3(0, 0, 1), speed);
+    public void WalkForward2(InputAction.CallbackContext context){
+        //moveDirection = move.action.ReadValue<Vector2>();
+        //moveDirection = move.action.ReadValue<Vector2>();
+        Vector3 _move = new Vector3(0, 0, -1);
+        controller.Move(_move * speed * xSpeed * Time.deltaTime);
     }
     void Backwards(){
         if (Input.GetKey(keybidings.k_backwards) || Input.GetKey(keybidings.j_backwards)){
@@ -110,7 +123,6 @@ public class Movement : MonoBehaviour
         else {
             animatorBasic.SetBool("isRunning",false);
         }
-
     }
 
 
