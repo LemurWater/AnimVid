@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 24078c2689b2d4b9dba9d473c6389949
+guid: 4edb1342c614f04689f58cb559881391
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -17,7 +17,11 @@ ModelImporter:
     removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: 
+    rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Bone length in
+      copied configuration does not match position in animation file:\n\t'mixamorig:LeftUpLeg'
+      : position error = 1059.233276 mm\n\t'mixamorig:LeftLeg' : position error =
+      4234.767090 mm\n\t'mixamorig:LeftFoot' : position error = 4341.824707 mm\n\t'mixamorig:LeftToeBase'
+      : position error = 1316.271729 mm\n"
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -33,11 +37,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: GUN - Death
+      name: GUN - Idle Reload
       takeName: mixamo.com
       internalID: -203655887218126122
       firstFrame: 0
-      lastFrame: 170
+      lastFrame: 198
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

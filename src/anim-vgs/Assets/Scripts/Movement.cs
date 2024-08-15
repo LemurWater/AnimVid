@@ -5,7 +5,8 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     [Header("REFERENCES")]
-    public Animator animator;
+    public Animator animatorBasic;
+    public Animator animatorGun;
 
     CharacterController controller;
     Keybindings keybidings;
@@ -26,6 +27,7 @@ public class Movement : MonoBehaviour
     [Space(10)]
     [Header("EQUIPMENT")]
     public GameObject gun;
+    public bool gunEquiped;
 
     [Space(10)]
     [Header("CAMERAS")]
@@ -42,21 +44,34 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Walk();
+        Move();
     }
-    void Walk() {
-        Forward();
+
+
+    void Move() {
+        //MovementBasic();
+        MovementGun();
+    }
+    void MovementBasic(){
+        WalkForward();
         Backwards();
         Run();
     }
+        void MovementGun(){
+        Reload();
+        Aim();
+        Shoot();
+        ShootAuto();
+    }
+
 
     void CharacterMovement(Vector3 direction, float _speed) {
         controller.Move(direction * _speed * xSpeed * Time.deltaTime);
     }
-    void Forward(){
-        if (Input.GetKey(keybidings.forward_k) || Input.GetKey(keybidings.forward_j)){
+    void WalkForward(){
+        if (Input.GetKey(keybidings.k_forward) || Input.GetKey(keybidings.j_forward)){
             //Animation
-            animator.SetBool("isForward",true);
+            animatorBasic.SetBool("isForward",true);
             //3D Movement
             //Vector3 _move = new Vector3(0, 0, 1); delete
             CharacterMovement(new Vector3(0, 0, 1), speed);
@@ -64,34 +79,69 @@ public class Movement : MonoBehaviour
         }
         else {
             //Animation
-            animator.SetBool("isForward",false);
+            animatorBasic.SetBool("isForward",false);
             //3D Movement
         }
     }
     void Backwards(){
-        if (Input.GetKey(keybidings.backwards_k) || Input.GetKey(keybidings.backwards_j)){
+        if (Input.GetKey(keybidings.k_backwards) || Input.GetKey(keybidings.j_backwards)){
             //Animation
-            animator.SetBool("isBackwards",true);
+            animatorBasic.SetBool("isBackwards",true);
             //3D Movement
             Vector3 _move = new Vector3(0, 0, -1);
             controller.Move(_move * speed * xSpeed * Time.deltaTime);
         }
         else {
             //Animation
-            animator.SetBool("isBackwards",false);
+            animatorBasic.SetBool("isBackwards",false);
             //3D Movement
             Vector3 _move = new Vector3(0, 0, 0);
             controller.Move(_move);
         }
     }
-
     void Run(){
-        if (Input.GetKey(keybidings.run_k) || Input.GetKey(keybidings.run_j)){
-            animator.SetBool("isRunning",true);
+        if (Input.GetKey(keybidings.k_run) || Input.GetKey(keybidings.j_run)){
+            animatorBasic.SetBool("isRunning",true);
         }
         else {
-            animator.SetBool("isRunning",false);
+            animatorBasic.SetBool("isRunning",false);
         }
 
+    }
+
+
+
+    // Gun ---------------------------------------
+    void Reload(){
+        if (Input.GetKey(keybidings.k_reload) || Input.GetKey(keybidings.j_reload)){
+            animatorGun.SetBool("isAiming",true);
+        }
+        else {
+            animatorGun.SetBool("isAiming",false);
+        }
+    }
+    void Aim(){
+        if (Input.GetKey(keybidings.k_aim) || Input.GetKey(keybidings.j_aim)){
+            animatorGun.SetBool("isAiming",true);
+        }
+        else {
+            animatorGun.SetBool("isAiming",false);
+        }
+    }
+    void Shoot(){
+        if (Input.GetKey(keybidings.k_shoot) || Input.GetKey(keybidings.j_shoot)){
+            animatorGun.SetBool("isShooting",true);
+        }
+        else {
+            animatorGun.SetBool("isShooting",false);
+        }
+    }
+    void ShootAuto(){
+        if (Input.GetKey(keybidings.k_auto) || Input.GetKey(keybidings.j_auto)){
+            animatorGun.SetBool("isAuto",true);
+        }
+        else {
+            animatorGun.SetBool("isAuto",false);
+        }
     }
 }
