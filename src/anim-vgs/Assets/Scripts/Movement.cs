@@ -77,34 +77,29 @@ public class Movement : MonoBehaviour
 
     public void MoveEvent(InputAction.CallbackContext context){
         Vector2 move = context.ReadValue<Vector2>();
-        Debug.Log(move);
         moveDir = new (move.x, 0, move.y);
         //PrimitiveAnimations();
     }
 
     void CheckAnimations(){
+        //Y-Axis
         if (moveDir.z > 0){
             animatorBasic.SetBool("isForward",true);
-            animatorBasic.SetBool("isBackwards",false);
-        }if (moveDir.z < 0){
-            animatorBasic.SetBool("isForward",false);
-            animatorBasic.SetBool("isBackwards",true);
+        }else if (moveDir.z < 0) {
+            animatorBasic.SetBool("isBackwards", true);
         }else{
             animatorBasic.SetBool("isForward",false);
             animatorBasic.SetBool("isBackwards", false);
         }
-        moveDir = new();
-        /*
-        if (move.x > 0){
-            animatorBasic.SetBool("isStrifeLeft",true);
-            animatorBasic.SetBool("isStrifeRight", false);
-        } else  if (move.x > 0){
-            animatorBasic.SetBool("isStrifeLeft",false);
-            animatorBasic.SetBool("isStrifeRight", true);
+        //X-Axis
+        if (moveDir.x > 0){
+            animatorBasic.SetBool("isStrifeRight",true);
+        }else if (moveDir.x < 0) {
+            animatorBasic.SetBool("isStrifeLeft", true);
         }else{
-            animatorBasic.SetBool("isStrifeLeft",false);
-            animatorBasic.SetBool("isStrifeRight", false);
-        }*/
+            animatorBasic.SetBool("isStrifeRight",false);
+            animatorBasic.SetBool("isStrifeLeft", false);
+        }
     }
     void MoveCC(){
         controller.Move(moveDir * speed * xSpeed * Time.deltaTime);
