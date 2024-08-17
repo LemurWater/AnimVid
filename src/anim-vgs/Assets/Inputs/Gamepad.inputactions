@@ -2,26 +2,26 @@
     "name": "Gamepad",
     "maps": [
         {
-            "name": "Main",
+            "name": "Movement",
             "id": "43b0e706-5a4e-4607-b5c2-ec651359d0c1",
             "actions": [
                 {
-                    "name": "Print",
-                    "type": "Value",
-                    "id": "8c4a1493-db36-4a87-a757-43ee074b0f6c",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "Move",
-                    "type": "Value",
+                    "type": "PassThrough",
                     "id": "8bbb078d-afc1-4fbe-a65e-636583573ef1",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Run",
+                    "type": "Button",
+                    "id": "6329034b-d2c7-44a7-8ccc-0bc4f69be783",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Look",
@@ -35,18 +35,7 @@
             ],
             "bindings": [
                 {
-                    "name": "",
-                    "id": "3ef0948a-5269-48b1-a378-d80c703d5d35",
-                    "path": "<Linux::SZMYPOWERDS4WiredController>/Stick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "WASD",
+                    "name": "WASD [Keyboard]",
                     "id": "3a328c24-35ca-482f-923b-b9471e3a2391",
                     "path": "2DVector",
                     "interactions": "",
@@ -102,23 +91,12 @@
                 },
                 {
                     "name": "",
-                    "id": "b6508f66-52fa-49e2-abcf-4dfb0f162e8b",
-                    "path": "<DualShock4GamepadAndroid>/leftStick",
+                    "id": "3ef0948a-5269-48b1-a378-d80c703d5d35",
+                    "path": "<Joystick>/stick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "e933edd8-549f-4ad9-816a-eb4d59442572",
-                    "path": "<Keyboard>/p",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Print",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -141,6 +119,129 @@
                     "processors": "",
                     "groups": "",
                     "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "200bfd67-2d0c-4ea5-84cc-3df0a34bde3e",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c8d0a584-e7f5-408e-9728-d81043b7e643",
+                    "path": "<Linux::SZMYPOWERDS4WiredController>/ThumbRight",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Combat",
+            "id": "70ad2802-034a-4040-82c3-b0f7cb071e82",
+            "actions": [
+                {
+                    "name": "Melee",
+                    "type": "PassThrough",
+                    "id": "11647fd8-2f1d-43c8-b936-c956cd20d530",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Aim",
+                    "type": "PassThrough",
+                    "id": "daecb288-1bdf-45dd-ae1a-6a95e94a2396",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Shoot",
+                    "type": "PassThrough",
+                    "id": "bd97d425-1a72-4c41-aafc-8d817fd819ae",
+                    "expectedControlType": "DiscreteButton",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "1cc00f43-869d-46c4-b163-f4790bf30542",
+                    "path": "<Mouse>/{PrimaryAction}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Melee",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9f69a7cc-4737-43b6-9142-ae499d40ebdc",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Melee",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4fc96ff9-cb02-47c3-9eb4-bc3fe1eae80e",
+                    "path": "<Mouse>/{SecondaryAction}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ef6e6621-e291-4573-81fb-91dfae83177b",
+                    "path": "<Linux::SZMYPOWERDS4WiredController>/TriggerLeft2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d851f3aa-24a0-46f5-9b0b-42c8166108d9",
+                    "path": "<Mouse>/{PrimaryAction}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4c3c343c-a8a9-484f-921a-0d4ac9fa7157",
+                    "path": "<Linux::SZMYPOWERDS4WiredController>/RotateY",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

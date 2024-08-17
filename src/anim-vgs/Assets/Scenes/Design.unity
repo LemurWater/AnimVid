@@ -292,7 +292,7 @@ Transform:
   m_GameObject: {fileID: 341814086}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.523, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -314,12 +314,12 @@ MonoBehaviour:
   animatorBasic: {fileID: 1096132990}
   animatorGun: {fileID: 1096132990}
   xSpeed: 1
-  speed: 2.68
-  runSpeed: 3
+  speed: 2.69
+  runSpeed: 4.04
   character: {fileID: 1096132987}
   gun: {fileID: 766260204}
   gunEquiped: 0
-  camera: {fileID: 971053046}
+  cam: {fileID: 0}
 --- !u!143 &341814089
 CharacterController:
   m_ObjectHideFlags: 0
@@ -399,10 +399,6 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 8c4a1493-db36-4a87-a757-43ee074b0f6c
-    m_ActionName: Main/Print[/Keyboard/p]
-  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 341814088}
         m_TargetAssemblyTypeName: Movement, Assembly-CSharp
@@ -434,9 +430,25 @@ MonoBehaviour:
         m_CallState: 1
     m_ActionId: d074b28b-9e68-41e4-a208-d14228b02bcd
     m_ActionName: Main/Look[/Mouse/delta]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6329034b-d2c7-44a7-8ccc-0bc4f69be783
+    m_ActionName: Movement/Run[/Keyboard/leftShift,/SZMYPOWERDS4WiredController/ThumbRight]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 11647fd8-2f1d-43c8-b936-c956cd20d530
+    m_ActionName: Combat/Melee[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: daecb288-1bdf-45dd-ae1a-6a95e94a2396
+    m_ActionName: Combat/Aim[/Mouse/rightButton,/SZMYPOWERDS4WiredController/TriggerLeft2]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bd97d425-1a72-4c41-aafc-8d817fd819ae
+    m_ActionName: Combat/Shoot[/Mouse/leftButton,/SZMYPOWERDS4WiredController/RotateY]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Main
+  m_DefaultActionMap: Movement
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!54 &341814093
@@ -461,11 +473,11 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &341814094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -945,7 +957,7 @@ Transform:
   m_GameObject: {fileID: 766260204}
   serializedVersion: 2
   m_LocalRotation: {x: -0.27665162, y: 0.4955273, z: 0.42233968, w: 0.70678556}
-  m_LocalPosition: {x: 0.17290938, y: 0.21191108, z: 0.49330333}
+  m_LocalPosition: {x: 0.17290938, y: 1.7349111, z: 0.49330333}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2106,7 +2118,7 @@ Transform:
   m_GameObject: {fileID: 971053046}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0.643, z: 2.031}
+  m_LocalPosition: {x: 0, y: 2.166, z: 2.031}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2329,7 +2341,7 @@ Transform:
   m_GameObject: {fileID: 1096132987}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.523, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2374,7 +2386,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: cfe77e14f8f763b3696517437d5f7d2e, type: 3}
   m_Controller: {fileID: 9100000, guid: 8ee153e01ca49920fb78999cff516477, type: 2}
-  m_CullingMode: 2
+  m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
@@ -2781,7 +2793,7 @@ Transform:
   m_GameObject: {fileID: 1301223068}
   serializedVersion: 2
   m_LocalRotation: {x: 0.68694925, y: -0.32220134, z: -0.16184708, w: 0.63094586}
-  m_LocalPosition: {x: 0.21668914, y: 0.24893972, z: 0.25767392}
+  m_LocalPosition: {x: 0.21668914, y: 1.7719398, z: 0.25767392}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9212,7 +9224,7 @@ Transform:
   m_GameObject: {fileID: 1883758213}
   serializedVersion: 2
   m_LocalRotation: {x: -0.29176775, y: 0.6130493, z: 0.3220076, w: 0.659813}
-  m_LocalPosition: {x: 0.15702187, y: 0.24854362, z: 0.50663126}
+  m_LocalPosition: {x: 0.15702187, y: 1.7715437, z: 0.50663126}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

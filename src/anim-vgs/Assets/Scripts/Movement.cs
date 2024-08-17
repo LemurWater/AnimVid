@@ -23,7 +23,7 @@ public class Movement : MonoBehaviour
     public float xSpeed = 1.0f;
     [Range(1.0f, 5.0f)]
     public float speed = 2.0f;
-    [Range(1, 4)]
+    [Range(1.0f, 5.0f)]
     public float runSpeed = 3.0f;
 
     Vector3 moveDir;
@@ -39,7 +39,7 @@ public class Movement : MonoBehaviour
 
     [Space(10)]
     [Header("CAMERAS")]
-    public GameObject camera;
+    public GameObject cam;
 
 
 
@@ -53,23 +53,50 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate() 
     {
-        if (movementByRigidbody) {
+        if (movementByRigidbody == true) {
             MoveRB();
         }
     }
     void Update()
     {
-        if (!movementByRigidbody) {
+        if (movementByRigidbody == false) {
             MoveCC();
         }
+        CheckAnimations();
     }
 
 
     public void MoveEvent(InputAction.CallbackContext context){
         Vector2 move = context.ReadValue<Vector2>();
+        Debug.Log(move);
         moveDir = new (move.x, 0, move.y);
+        //PrimitiveAnimations();
     }
 
+    void CheckAnimations(){
+        if (moveDir.z > 0){
+            animatorBasic.SetBool("isForward",true);
+            animatorBasic.SetBool("isBackwards",false);
+        }if (moveDir.z < 0){
+            animatorBasic.SetBool("isForward",false);
+            animatorBasic.SetBool("isBackwards",true);
+        }else{
+            animatorBasic.SetBool("isForward",false);
+            animatorBasic.SetBool("isBackwards", false);
+        }
+        moveDir = new();
+        /*
+        if (move.x > 0){
+            animatorBasic.SetBool("isStrifeLeft",true);
+            animatorBasic.SetBool("isStrifeRight", false);
+        } else  if (move.x > 0){
+            animatorBasic.SetBool("isStrifeLeft",false);
+            animatorBasic.SetBool("isStrifeRight", true);
+        }else{
+            animatorBasic.SetBool("isStrifeLeft",false);
+            animatorBasic.SetBool("isStrifeRight", false);
+        }*/
+    }
     void MoveCC(){
         controller.Move(moveDir * speed * xSpeed * Time.deltaTime);
     }
@@ -87,7 +114,10 @@ public class Movement : MonoBehaviour
         ShootAuto();
     }
 
-
+    void PrimitiveAnimations(){
+        WalkForward();
+        WalkBackwards();
+    }
     void WalkForward(){
         if (Input.GetKey(keybidings.k_forward) || Input.GetKey(keybidings.j_forward)){
             //Animation
@@ -103,7 +133,21 @@ public class Movement : MonoBehaviour
             //3D Movement
         }
     }
-
+    void WalkBackwards(){
+        if (Input.GetKey(keybidings.k_backwards) || Input.GetKey(keybidings.j_backwards)){
+            //Animation
+            animatorBasic.SetBool("isBackwards",true);
+            //3D Movement
+            //Vector3 _move = new Vector3(0, 0, 1); delete
+            //CharacterMovement(new Vector3(0, 0, 1), speed);
+            //controller.Move(_move * speed * xSpeed * Time.deltaTime); delete
+        }
+        else {
+            //Animation
+            animatorBasic.SetBool("isBackwards",false);
+            //3D Movement
+        }
+    }
 
     void Run(){
         if (Input.GetKey(keybidings.k_run) || Input.GetKey(keybidings.j_run)){
