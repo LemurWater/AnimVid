@@ -9,7 +9,6 @@ public class Movement : MonoBehaviour
     [Header("REFERENCES")]
     public Animator animatorBasic;
     public Animator animatorGun;
-    public InputActionReference move;
     Vector2 moveDirection;
 
     CharacterController controller;
@@ -49,23 +48,23 @@ public class Movement : MonoBehaviour
     }
 
     void FixedUpdate() {
-        rb.velocity = new Vector2(moveDirection.x * speed * Time.deltaTime, moveDirection.y * speed * Time.deltaTime);    
+        //rb.velocity = new Vector2(moveDirection.x * speed * Time.deltaTime, moveDirection.y * speed * Time.deltaTime);    
     }
     // Update is called once per frame
     void Update()
     {
-        //Move();
-        moveDirection = move.action.ReadValue<Vector2>();
+        
     }
 
-
+    public void Print(){
+        Debug.Log("Print");
+    }
     void Move() {
         //MovementBasic();
         MovementGun();
     }
     void MovementBasic(){
         WalkForward();
-        Backwards();
         Run();
     }
         void MovementGun(){
@@ -94,27 +93,11 @@ public class Movement : MonoBehaviour
             //3D Movement
         }
     }
-    public void WalkForward2(InputAction.CallbackContext context){
-        //moveDirection = move.action.ReadValue<Vector2>();
-        //moveDirection = move.action.ReadValue<Vector2>();
-        Vector3 _move = new Vector3(0, 0, -1);
-        controller.Move(_move * speed * xSpeed * Time.deltaTime);
-    }
-    void Backwards(){
-        if (Input.GetKey(keybidings.k_backwards) || Input.GetKey(keybidings.j_backwards)){
-            //Animation
-            animatorBasic.SetBool("isBackwards",true);
-            //3D Movement
-            Vector3 _move = new Vector3(0, 0, -1);
-            controller.Move(_move * speed * xSpeed * Time.deltaTime);
-        }
-        else {
-            //Animation
-            animatorBasic.SetBool("isBackwards",false);
-            //3D Movement
-            Vector3 _move = new Vector3(0, 0, 0);
-            controller.Move(_move);
-        }
+    public void Move(InputAction.CallbackContext context){
+        Debug.Log(context);
+        Vector2 move = context.ReadValue<Vector2>();
+        Vector3  move2 = new (move.x, move.y, 0);
+        controller.Move(move2 * speed * xSpeed * Time.deltaTime);
     }
     void Run(){
         if (Input.GetKey(keybidings.k_run) || Input.GetKey(keybidings.j_run)){
