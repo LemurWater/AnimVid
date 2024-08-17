@@ -13,6 +13,7 @@ public class Movement : MonoBehaviour
     public Animator animatorBasic;
     public Animator animatorGun;
 
+    CapsuleCollider collider;
     CharacterController controller;
     Rigidbody rigidbody;
     Keybindings keybidings;
@@ -46,9 +47,17 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        collider = GetComponent<CapsuleCollider>();
         controller = GetComponent<CharacterController>();
         rigidbody = GetComponent<Rigidbody>();
         keybidings = GetComponent<Keybindings>();
+
+        if(movementByRigidbody == true){
+            Destroy(controller);
+        }else{
+            Destroy(collider);
+            Destroy(rigidbody);
+        }
     }
 
     void FixedUpdate() 
