@@ -6,23 +6,27 @@ using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
+    [Header("SETTINGS")]
+    public bool movementByRigidbody = true;
+
     [Header("REFERENCES")]
     public Animator animatorBasic;
     public Animator animatorGun;
-    Vector2 moveDirection;
 
     CharacterController controller;
-    Rigidbody rb;
+    Rigidbody rigidbody;
     Keybindings keybidings;
 
     [Space(20)]
     [Header("VARIABLES ---------------------------")]
     [Header("MOVEMENT")]
     public float xSpeed = 1.0f;
-    [Range(1, 4)]
-    public float speed = 1.5f;
+    [Range(1.0f, 5.0f)]
+    public float speed = 2.0f;
     [Range(1, 4)]
     public float runSpeed = 3.0f;
+
+    Vector3 moveDir;
 
     [Space(10)]
     [Header("CHARACTER")]
@@ -43,25 +47,34 @@ public class Movement : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
-        rb = GetComponent<Rigidbody>();
+        rigidbody = GetComponent<Rigidbody>();
         keybidings = GetComponent<Keybindings>();
     }
 
-    void FixedUpdate() {
-        //rb.velocity = new Vector2(moveDirection.x * speed * Time.deltaTime, moveDirection.y * speed * Time.deltaTime);    
+    void FixedUpdate() 
+    {
+        if (movementByRigidbody) {
+            MoveRB();
+        }
     }
-    // Update is called once per frame
     void Update()
     {
-        
+        if (!movementByRigidbody) {
+            MoveCC();
+        }
     }
 
-    public void Print(){
-        Debug.Log("Print");
+
+    public void MoveEvent(InputAction.CallbackContext context){
+        Vector2 move = context.ReadValue<Vector2>();
+        moveDir = new (move.x, 0, move.y);
     }
-    void Move() {
-        //MovementBasic();
-        MovementGun();
+
+    void MoveCC(){
+        controller.Move(moveDir * speed * xSpeed * Time.deltaTime);
+    }
+    void MoveRB(){
+        rigidbody.MovePosition(transform.position + moveDir * speed * xSpeed * Time.deltaTime);
     }
     void MovementBasic(){
         WalkForward();
@@ -75,16 +88,13 @@ public class Movement : MonoBehaviour
     }
 
 
-    void CharacterMovement(Vector3 direction, float _speed) {
-        controller.Move(direction * _speed * xSpeed * Time.deltaTime);
-    }
     void WalkForward(){
         if (Input.GetKey(keybidings.k_forward) || Input.GetKey(keybidings.j_forward)){
             //Animation
             animatorBasic.SetBool("isForward",true);
             //3D Movement
             //Vector3 _move = new Vector3(0, 0, 1); delete
-            CharacterMovement(new Vector3(0, 0, 1), speed);
+            //CharacterMovement(new Vector3(0, 0, 1), speed);
             //controller.Move(_move * speed * xSpeed * Time.deltaTime); delete
         }
         else {
@@ -93,12 +103,8 @@ public class Movement : MonoBehaviour
             //3D Movement
         }
     }
-    public void Move(InputAction.CallbackContext context){
-        Debug.Log(context);
-        Vector2 move = context.ReadValue<Vector2>();
-        Vector3  move2 = new (move.x, move.y, 0);
-        controller.Move(move2 * speed * xSpeed * Time.deltaTime);
-    }
+
+
     void Run(){
         if (Input.GetKey(keybidings.k_run) || Input.GetKey(keybidings.j_run)){
             animatorBasic.SetBool("isRunning",true);

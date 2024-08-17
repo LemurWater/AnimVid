@@ -310,10 +310,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9d006f8e5edf8210978dac595569e45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementByRigidbody: 1
   animatorBasic: {fileID: 1096132990}
   animatorGun: {fileID: 1096132990}
   xSpeed: 1
-  speed: 1.5
+  speed: 2.68
   runSpeed: 3
   character: {fileID: 1096132987}
   gun: {fileID: 766260204}
@@ -405,7 +406,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 341814088}
         m_TargetAssemblyTypeName: Movement, Assembly-CSharp
-        m_MethodName: Move
+        m_MethodName: MoveEvent
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -420,12 +421,12 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 341814094}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+        m_TargetAssemblyTypeName: Looking, Assembly-CSharp
+        m_MethodName: Look
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
