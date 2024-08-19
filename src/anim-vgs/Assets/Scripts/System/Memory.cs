@@ -32,6 +32,8 @@ public class Memory : MonoBehaviour
     public Looking sptLooking;
     public Movement sptMovement;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,20 +44,15 @@ public class Memory : MonoBehaviour
         ApplySettings();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 
     public  void LoadSettings(){
         filePath = Application.streamingAssetsPath + "/" + fileName;
-        var sr = new StreamReader(filePath);
+        StreamReader sr = new StreamReader(filePath);
         var fileContents = sr.ReadToEnd();
         sr.Close();
 
-        var lines = fileContents.Split("\n"[0]);
-        //memData = lines;
+        string[] lines = fileContents.Split("\n"[0]);
         foreach (string line in lines){
             memData.Add(line);
         }
@@ -66,9 +63,9 @@ public class Memory : MonoBehaviour
     public void ApplySettings(){
         for(int i = 0; i< memData.Count; i++){
             if(memData[i].ToUpper().Contains("Sensitivity".ToUpper())){
-                var dataArray = memData[i].Split("=");
-                var parsedData = float.TryParse(dataArray[1], out var value);
-                sptLooking.SetSensitivity(value);
+                string[] dataArray = memData[i].Split("=");
+                float.TryParse(dataArray[1], out float value);
+                sptLooking.Sensitivity = value;
             }
         }
     }

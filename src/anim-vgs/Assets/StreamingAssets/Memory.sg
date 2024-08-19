@@ -1,7 +1,7 @@
 [Mouse]
-Sensitivity=5.0
+Sensitivity=6.9
 xSens=1.0
-CSGOMultiplier=0.9
+CSMultiplier=0.9
 
 [Keyboard]
 ToggleAim=yes
@@ -9,10 +9,18 @@ ToggleRun=no
 ToggleCrouch=no
 
 [Gamepad]
+LDeadZone=0.5
+RDeadZone=0.5
+LTriggerTreshold=0.2
+RTriggerTreshold=0.2
+
 [Joystick]
 [D-Pad]
 [Wheel]
+
 [Light Gun]
+PollingRate=1000
+
 [Arcade]
 [Wii]
 [VR/XR]

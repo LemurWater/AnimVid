@@ -16,10 +16,21 @@ public class Looking : MonoBehaviour
 
 
     [Range(sensMin, sensMax)]
-    public float sensitivity = 1;
+    [SerializeField] float sensitivity = 1.0f;
+
 
     const float sensMax = 5.0f;
     const float sensMin = 0.1f;
+
+
+
+    public float Sensitivity { 
+        get{
+            return sensitivity;
+        } set{
+            sensitivity = Mathf.Clamp(value, sensMin, sensMax);
+        }
+    }
 
 
     public void Look(InputAction.CallbackContext ctx)
@@ -34,13 +45,4 @@ public class Looking : MonoBehaviour
         camera.RotateAround(transform.position, transform.up, lookVector.Value.x * sensitivity * 360);
     }
 
-
-
-    public void SetSensitivity(float newSens){
-        sensitivity = newSens;
-        /*
-        if(newSens > sensMin && newSens < sensMax){
-            sensitivity = newSens;
-        }*/
-    }
 }
