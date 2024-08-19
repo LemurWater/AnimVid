@@ -1,0 +1,18 @@
+[Mouse]
+Sensitivity=5.0
+xSens=1.0
+CSGOMultiplier=0.9
+
+[Keyboard]
+ToggleAim=yes
+ToggleRun=no
+ToggleCrouch=no
+
+[Gamepad]
+[Joystick]
+[D-Pad]
+[Wheel]
+[Light Gun]
+[Arcade]
+[Wii]
+[VR/XR]

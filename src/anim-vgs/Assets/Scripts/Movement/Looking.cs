@@ -13,9 +13,15 @@ public class Looking : MonoBehaviour
     [SerializeField] private Transform camera;
     [SerializeField] private Vector2Dampener lookVector;
 
-    [Range(0.0f, 1.0f)]
+
+
+    [Range(sensMin, sensMax)]
     public float sensitivity = 1;
-    
+
+    const float sensMax = 5.0f;
+    const float sensMin = 0.1f;
+
+
     public void Look(InputAction.CallbackContext ctx)
     {
         lookVector.Target = (ctx.ReadValue<Vector2>() / new Vector2(Screen.width, Screen.height));
@@ -26,5 +32,15 @@ public class Looking : MonoBehaviour
     {
         lookVector.Update();
         camera.RotateAround(transform.position, transform.up, lookVector.Value.x * sensitivity * 360);
+    }
+
+
+
+    public void SetSensitivity(float newSens){
+        sensitivity = newSens;
+        /*
+        if(newSens > sensMin && newSens < sensMax){
+            sensitivity = newSens;
+        }*/
     }
 }

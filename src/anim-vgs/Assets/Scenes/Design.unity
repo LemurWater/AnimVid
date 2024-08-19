@@ -600,7 +600,7 @@ MonoBehaviour:
   lookVector:
     time: 0.2
     clampMagnitude: 0
-  sensitivity: 0.144
+  sensitivity: 0.1
 --- !u!136 &341814095
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5002,6 +5002,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1445182284}
   - component: {fileID: 1445182285}
+  - component: {fileID: 1445182286}
   m_Layer: 0
   m_Name: SYSTEM
   m_TagString: Untagged
@@ -5039,6 +5040,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugGamepadOld: 1
+--- !u!114 &1445182286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445182283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82b18a9e9ecf380c2a04e5acef7578b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fileName: Memory.sg
+  filePath: 
+  memData: []
+  player: {fileID: 341814086}
+  sptLooking: {fileID: 0}
+  sptMovement: {fileID: 0}
 --- !u!1001 &1454689681
 PrefabInstance:
   m_ObjectHideFlags: 0
