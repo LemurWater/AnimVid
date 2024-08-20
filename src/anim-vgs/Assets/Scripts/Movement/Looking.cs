@@ -10,20 +10,20 @@ using UnityEditor;
 
 public class Looking : MonoBehaviour
 {
-    [SerializeField] private Transform camera;
+    [SerializeField] private Transform camFps;
+    [SerializeField] private Transform camTps;
     [SerializeField] private Vector2Dampener lookVector;
 
 
 
     [Range(sensMin, sensMax)]
-    [SerializeField] float sensitivity = 1.0f;
+    [SerializeField] private float sensitivity = 1.0f;
 
 
     const float sensMax = 5.0f;
     const float sensMin = 0.1f;
 
-
-
+    
     public float Sensitivity { 
         get{
             return sensitivity;
@@ -44,5 +44,4 @@ public class Looking : MonoBehaviour
         lookVector.Update();
         camera.RotateAround(transform.position, transform.up, lookVector.Value.x * sensitivity * 360);
     }
-
 }

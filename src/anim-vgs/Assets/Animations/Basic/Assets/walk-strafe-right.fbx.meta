@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8f338ae81f34c2d6cb51e26caa39c59b
+guid: 728d3889cb7113dac8bf3bd22fa15d6c
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -19,9 +19,10 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Bone length in
       copied configuration does not match position in animation file:\n\t'mixamorig:LeftUpLeg'
-      : position error = 1059.233276 mm\n\t'mixamorig:LeftLeg' : position error =
-      4234.767090 mm\n\t'mixamorig:LeftFoot' : position error = 4341.824707 mm\n\t'mixamorig:LeftToeBase'
-      : position error = 1316.271729 mm\n"
+      : position error = 3.636166 mm\n\t'mixamorig:LeftLeg' : position error = 3.127507
+      mm\n\t'mixamorig:LeftFoot' : position error = 17.933300 mm\n\t'mixamorig:RightUpLeg'
+      : position error = 5.396185 mm\n\t'mixamorig:RightLeg' : position error = 3.101701
+      mm\n\t'mixamorig:RightFoot' : position error = 17.855289 mm\n"
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -37,7 +38,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: walk-strife-left
+      name: walk-strafe-right
       takeName: mixamo.com
       internalID: -203655887218126122
       firstFrame: 0
