@@ -42,6 +42,6 @@ public class Looking : MonoBehaviour
     private void Update()
     {
         lookVector.Update();
-        camera.RotateAround(transform.position, transform.up, lookVector.Value.x * sensitivity * 360);
+        //GetComponent<Camera>().RotateAround(transform.position, transform.up, lookVector.Value.x * sensitivity * 360);
     }
 }
