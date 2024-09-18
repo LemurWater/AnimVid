@@ -186,25 +186,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: SYSTEM
       objectReference: {fileID: 0}
-    - target: {fileID: 4021996950422614530, guid: 0238d8e0a8e65624f8bc565b84bebd14,
+    - target: {fileID: 8364446196656509649, guid: 0238d8e0a8e65624f8bc565b84bebd14,
         type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
+      propertyPath: sceneName
+      value: Basic Movement
       objectReference: {fileID: 0}
-    - target: {fileID: 4021996950422614530, guid: 0238d8e0a8e65624f8bc565b84bebd14,
+    - target: {fileID: 8364446196656509649, guid: 0238d8e0a8e65624f8bc565b84bebd14,
         type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.9238797
+      propertyPath: sceneType
+      value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 4021996950422614530, guid: 0238d8e0a8e65624f8bc565b84bebd14,
+    - target: {fileID: 8364446196656509649, guid: 0238d8e0a8e65624f8bc565b84bebd14,
         type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.3826831
+      propertyPath: sceneIndex
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4021996950422614530, guid: 0238d8e0a8e65624f8bc565b84bebd14,
+    - target: {fileID: 8364446196656509649, guid: 0238d8e0a8e65624f8bc565b84bebd14,
         type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 45
+      propertyPath: sceneDescription
+      value: Walk, Run
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
